@@ -1,11 +1,9 @@
 .Home {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 50px;
+    background-image: url("../../Picture/fond.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
 }
 
 .Home .GameName {
@@ -18,21 +16,25 @@
 
 .Home .question {
     width: 100vw;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 60px;
-    gap: 60px;
+    height: 100vh;
+    position: absolute;
 }
 
-.Home .button {
-    width: 30vw;
-    height: 60px;
-    border-radius: 50px;
-    border: none;
-    background-color: lightgreen;
-    font-size: 20px;
-    font-weight: 600;
-    cursor: pointer;
+.Home .VotreMain {
+    color: white;
+    font-weight: 500;
+    font-size: 32px;
+    position: absolute;
+    width: 100vw;
+    top: 85vh;
+    height: 10vh;
+    left: 50vw;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.None {
+    display: none;
 }

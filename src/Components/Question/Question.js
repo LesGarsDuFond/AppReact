@@ -1,59 +1,69 @@
 import './Question.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function Question(props) {
 
     const [votremain, setvotremain] = useState([props.mise])
 
-    const validmise = () => {
-        var vraimise = 0
+    const [vraimise, setvraimise] = useState(0)
+
+    const [disabled, setDisabled] = useState(true)
+
+    const [color, setColor] = useState(["white", "white", "white", "white"])
+
+    const lesRep = [
+        props.question.options[0],
+        props.question.options[1],
+        props.question.options[2],
+        props.question.options[3]
+    ]
+
+    const validmise = (event) => {
+        var tbColor = []
         for(let y = 0; y < props.question.options.length; y++)
         {
             var id = props.param+"mise"+y
-            var idrep = "reponse"+y+""+props.param
-            if(document.getElementsByClassName(idrep)[0].value == props.question.answer)
+            if(lesRep[y] == props.question.answer)
             {
-                vraimise += parseFloat(document.getElementsByClassName(id)[0].value)
-                document.getElementsByClassName(idrep)[0].style.backgroundColor = "green"
+                tbColor.push("green")
             }
             else
             {
-                document.getElementsByClassName(idrep)[0].style.backgroundColor = "red"
+                tbColor.push("red")
             }
         }
+        setColor(tbColor)
         setvotremain(vraimise)
         props.setMise(vraimise)
-        document.getElementsByClassName('button')[0].disabled = false;
-        document.getElementsByClassName('button')[0].addEventListener("click", props.questionSuivante);
+        props.setDisabledbtn(false)
     }
 
-    const verifMise = () => {
+    const verifMise = (event) => {
         var nbMise = 0;
         var resteMise = 0;
-        for(let y = 0; y < props.question.options.length; y++)
+        
+        if(event.target.value != "")
         {
-            var id = props.param+"mise"+y
-            if(document.getElementsByClassName(id)[0].value != "")
+            for(let y = 0; y < props.question.options.length; y++)
             {
-                nbMise++
-                resteMise = resteMise + parseFloat(document.getElementsByClassName(id)[0].value)
+                if(lesRep[y] == props.question.answer)
+                {
+                    setvraimise(event.target.value)
+                }
             }
+            nbMise++
+            resteMise = resteMise + parseFloat(event.target.value)
         }
         
         if(nbMise > 0 && props.mise - resteMise == 0)
         {
-            document.getElementsByClassName("valider"+props.param)[0].disabled = false;
-            document.getElementsByClassName("valider"+props.param)[0].addEventListener("click", validmise);
+            setDisabled(false)
         }
         else
         {
-            document.getElementsByClassName("valider"+props.param)[0].disabled = true;
+            setDisabled(true)
         }
     }
-
-    // useEffect(() => {
-    //     document.getElementsByClassName('button')[0].disabled = true;
-    // },)
 
     return (
         <>
@@ -62,13 +72,13 @@ function Question(props) {
                 {
                     props.question.options.map((index, i) => (
                         <div>
-                            <input className={"response reponse"+i+""+props.param} value={index}/>
-                            <input onChange={() => verifMise()} className={props.param+"mise"+i} placeholder="Entrez votre mise"/>
+                            <input className={color[i] == "white" ? "response reponse"+i+""+props.param : color[i] == "red" ? "response red" : "response green"} value={index}/>
+                            <input onChange={verifMise} className={"input " + props.param+"mise"+i} placeholder="Entrez votre mise"/>
                         </div>
                     ))
                 }
             </div>
-            <button disabled="disabled" className={"valid valider"+props.param}>Valider mes mises</button>
+            {/* <button onClick={validmise} disabled={disabled} className={"valid valider"+props.param}>Valider mes mises</button> */}
         </>
     );
 

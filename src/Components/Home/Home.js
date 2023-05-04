@@ -1,6 +1,7 @@
 import './Homes.css';
-import Question from "../Question/Question.js"
-import lesQuestion from "../lesQuestion.js"
+import Question from "../Question/Question.js";
+import lesQuestion from "../lesQuestion.js";
+import billet from "../../Picture/billet.png";
 import { useState, useEffect } from 'react';
 
 
@@ -8,12 +9,9 @@ function Home() {
 
     const [mise, setMise] = useState(2000)
 
-    const question = lesQuestion
+    const [result, setResult] = useState(false)
 
-    const questionSuivante = () => {
-        setActif(actifblock+1)
-        document.getElementsByClassName('button')[0].disabled = true;
-    }
+    const question = lesQuestion
 
     const [actifblock, setActif] = useState([])
 
@@ -23,17 +21,17 @@ function Home() {
 
     return (
         <>
-            <div className="Home">
-                <h1 className="GameName">Money Drop</h1>
+            <div className={result ? "None" : "Home"}>
                 {
                     question.map((q, index) => (
                         <div className={actifblock == index ? "question" : "none"}>
-                            <Question question={q} param={index} setMise={setMise} mise={mise} questionSuivante={questionSuivante}/>
+                            <Question question={q} param={index} setMise={setMise} mise={mise}/>
                         </div>
                     ))
                 }
+                <div>
+                </div>
                 <div className="VotreMain">Votre main : {mise} MYD</div>
-                <button disabled="disabled" className='button'>Suivant</button>
             </div>
         </>
     );
