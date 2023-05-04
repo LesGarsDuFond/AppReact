@@ -1,0 +1,38 @@
+.Home {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.Home .GameName {
+    font-size: 48px;
+}
+
+.Home .none {
+    display: none;
+}
+
+.Home .question {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 60px;
+    gap: 60px;
+}
+
+.Home .button {
+    width: 30vw;
+    height: 60px;
+    border-radius: 50px;
+    border: none;
+    background-color: lightgreen;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
