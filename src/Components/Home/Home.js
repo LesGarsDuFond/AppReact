@@ -1,9 +1,7 @@
 import './Homes.css';
 import Question from "../Question/Question.js";
 import lesQuestion from "../lesQuestion.js";
-import billet from "../../Picture/billet.png";
 import { useState, useEffect } from 'react';
-
 
 function Home() {
 
@@ -21,18 +19,18 @@ function Home() {
 
     return (
         <>
-            <div className={result ? "None" : "Home"}>
-                {
-                    question.map((q, index) => (
-                        <div className={actifblock == index ? "question" : "none"}>
-                            <Question question={q} param={index} setMise={setMise} mise={mise}/>
-                        </div>
-                    ))
-                }
-                <div>
+                <div className={result ? "None" : "Home"}>
+                    {
+                        question.map((q, index) => (
+                            <div className={actifblock == index ? "question" : "none"}>
+                                <Question question={q} param={index} setMise={setMise} mise={mise} />
+                            </div>
+                        ))
+                    }
+                    <div>
+                    </div>
+                    <div className="VotreMain">Votre main : {mise} MYD</div>
                 </div>
-                <div className="VotreMain">Votre main : {mise} MYD</div>
-            </div>
         </>
     );
 

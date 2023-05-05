@@ -80,7 +80,7 @@ h1 {
     flex-direction: row;
 }
 
-.form div {
+.form .questionrep {
     display: flex;
     flex-direction: column;
     width: 17.5vw;
@@ -88,20 +88,23 @@ h1 {
     position: absolute;
 }
 
-.form div:nth-child(1) {
+.form .questionrep:nth-child(1) {
     left: 15vw;
 }
-.form div:nth-child(2) {
+
+.form .questionrep:nth-child(2) {
     left: 32.5vw;
 }
-.form div:nth-child(3) {
+
+.form .questionrep:nth-child(3) {
     left: 50vw;
 }
-.form div:nth-child(4) {
+
+.form .questionrep:nth-child(4) {
     left: 67.5vw;
 }
 
-.form div .response {
+.form .questionrep .response {
     border: none;
     outline: none;
     position: absolute;
@@ -114,28 +117,31 @@ h1 {
     font-weight: bold;
 }
 
-.form div:nth-child(1) .response {
+.form .questionrep:nth-child(1) .response {
     top: 9vh;
     left: 1.5vw;
-    transform : rotate(-16deg);
-}
-.form div:nth-child(2) .response {
-    top: 2.5vh;
-    left: 2.5vw;
-    transform : rotate(-5deg);
-}
-.form div:nth-child(3) .response {
-    top: 2.5vh;
-    left: 1.75vw;
-    transform : rotate(6deg);
-}
-.form div:nth-child(4) .response {
-    top: 9vh;
-    left: 3vw;
-    transform : rotate(18deg);
+    transform: rotate(-16deg);
 }
 
-.form div .input {
+.form .questionrep:nth-child(2) .response {
+    top: 2.5vh;
+    left: 2.5vw;
+    transform: rotate(-5deg);
+}
+
+.form .questionrep:nth-child(3) .response {
+    top: 2.5vh;
+    left: 1.75vw;
+    transform: rotate(6deg);
+}
+
+.form .questionrep:nth-child(4) .response {
+    top: 9vh;
+    left: 3vw;
+    transform: rotate(18deg);
+}
+
+.form .questionrep .input {
     border: none;
     outline: none;
     position: absolute;
@@ -147,27 +153,119 @@ h1 {
     color: white;
 }
 
-.form div .input::placeholder {
+.form .questionrep .input::placeholder {
     color: white;
 }
 
-.form div:nth-child(1) .input {
+.form .questionrep:nth-child(1) .input {
     bottom: 4vh;
     left: 4vw;
-    transform : rotate(-16deg);
+    transform: rotate(-16deg);
 }
-.form div:nth-child(2) .input {
+
+.form .questionrep:nth-child(2) .input {
     bottom: 11vh;
     left: 4.25vw;
-    transform : rotate(-6deg);
+    transform: rotate(-6deg);
 }
-.form div:nth-child(3) .input {
+
+.form .questionrep:nth-child(3) .input {
     bottom: 11vh;
     left: 1.5vw;
-    transform : rotate(6deg);
+    transform: rotate(6deg);
 }
-.form div:nth-child(4) .input {
+
+.form .questionrep:nth-child(4) .input {
     bottom: 4vh;
     left: 1vw;
-    transform : rotate(16deg);
+    transform: rotate(16deg);
+}
+
+.form .questionrep .lesBtn {
+    width: 12vw;
+    height: 6vh;
+    position: absolute;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+}
+
+.form .questionrep:nth-child(1) .lesBtn {
+    bottom: 14vh;
+    left: 3vw;
+    transform: rotate(-16deg);
+    background-color: transparent;
+}
+
+.form .questionrep:nth-child(2) .lesBtn {
+    bottom: 21vh;
+    left: 3vw;
+    transform: rotate(-6deg);
+    background-color: transparent;
+}
+
+.form .questionrep:nth-child(3) .lesBtn {
+    bottom: 21vh;
+    left: 2vw;
+    transform: rotate(6deg);
+    background-color: transparent;
+}
+
+.form .questionrep:nth-child(4) .lesBtn {
+    bottom: 14vh;
+    left: 3vw;
+    transform: rotate(16deg);
+    background-color: transparent;
+}
+
+.form .questionrep .lesBtn button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.form .questionrep .lesBtn .moins {
+    background-color: red;
+}
+
+.form .questionrep .lesBtn .disabled {
+    pointer-events: none;
+}
+
+.form .questionrep .lesBtn .allin {
+    background-color: blue;
+}
+
+.form .questionrep .lesBtn .plus {
+    background-color: green;
+}
+
+.timer {
+    height: 140px;
+    width: 150px;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80vh;
+    left: 5vh;
+    color: white;
+}
+
+.imgBillet {
+    position: absolute;
+    top: 85vh;
+    left: 40vw;
+    width: 50px;
+}
+
+.isMoving {
+    transition: transform 0.5s;
 }

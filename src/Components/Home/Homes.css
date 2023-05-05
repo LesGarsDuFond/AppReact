@@ -28,7 +28,7 @@
     width: 100vw;
     top: 85vh;
     height: 10vh;
-    left: 50vw;
+    left: 45vw;
     width: auto;
     display: flex;
     align-items: center;
@@ -38,3 +38,11 @@
 .None {
     display: none;
 }
+
+/* .billet {
+    position: absolute;
+    width: 100px;
+    height: 10vh;
+    top: 85vh;
+    left: 40vw;
+} */
